@@ -14,7 +14,7 @@ describe "Static pages" do
     let(:heading) { 'Sample App' }
     let(:page_title) { '' }
 
- 	it_should_behave_like "all static pages"
+ 	  it_should_behave_like "all static pages"
     it { should_not have_selector 'title', text: '| Home' }
   end
 
@@ -23,7 +23,7 @@ describe "Static pages" do
     let(:heading) { 'Help' }
     let(:page_title) { 'Help' }
 
- 	it_should_behave_like "all static pages"
+ 	  it_should_behave_like "all static pages"
    end
 
   describe "About page" do
@@ -31,7 +31,7 @@ describe "Static pages" do
     let(:heading) { 'About' }
     let(:page_title) { 'About' }
 
- 	it_should_behave_like "all static pages"
+ 	  it_should_behave_like "all static pages"
   end
 
   describe "Contact page" do
@@ -39,7 +39,7 @@ describe "Static pages" do
     let(:heading) { 'Contact Us' }
     let(:page_title) { 'Contact Us' }
 
- 	it_should_behave_like "all static pages"
+ 	  it_should_behave_like "all static pages"
   end
 
   it "should have the correct links on the layout" do
