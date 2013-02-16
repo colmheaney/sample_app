@@ -16,6 +16,7 @@ describe User do
 		@user = User.new(name: "Example user", email: "user@example.com",
 							password: "foobar", password_confirmation: "foobar")
 	end
+
 	subject { @user }
 
 	it { should respond_to (:name) }
@@ -24,7 +25,8 @@ describe User do
 	it { should respond_to (:password) }
 	it { should respond_to (:password_confirmation) }
 	it { should respond_to (:authenticate) }
-
+	it { should respond_to (:remember_token) }
+	
 	it { should be_valid }
 
 	describe "when name is not present" do
@@ -95,7 +97,7 @@ describe User do
 		describe "with valid password" do
 			it { should == found_user.authenticate(@user.password) }
 		end
-
+		
 		describe "with invalid password" do
 			let(:user_for_invalid_password) { found_user.authenticate("invalid") }
 
@@ -108,5 +110,11 @@ describe User do
 		before { @user.password = @user.password_confirmation = "a" * 5 }
 		it { should be_invalid }
 	end
+
+	describe "remember token" do
+		before { @user.save }
+		its(:remember_token) {should_not be_blank }
+	end
+
 end
 
